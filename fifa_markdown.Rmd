@@ -31,7 +31,20 @@ This is meant to have nicer plots than the previous one.
 ``` {r}
 library(ggplot2)
 ggplot(fifa2010teams,aes(x=goals_for)) + geom_histogram()
+ggplot(fifa2010teams,aes(x=goals_for)) + geom_histogram(bins=10, colour="black", fill='#8C8279') + xlab("Goals scored")
+boxplot(fifa2010teams$goals_for)
+ggplot(fifa2010teams,aes(y=goals_for)) + geom_boxplot()
+ggplot(fifa2010teams,aes(x="",y=goals_for)) + geom_boxplot(width=.2) + xlab("")
+plot(x=fifa2010teams$matches_played, y=fifa2010teams$goals_for)
+ggplot(fifa2010teams, aes(x=matches_played, y=goals_for)) + geom_point()
 
 ```
+Other types of plots now. 
 
+``` {r}
+
+set.seed(467)
+plot_raincloud(data=fifa2010teams, y=goals_for)
+
+```
 
